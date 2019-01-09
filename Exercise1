@@ -1,0 +1,17 @@
+-->Select statement:
+
+SELECT * FROM Customer;
+SELECT Id, FirstName FROM Customer;
+
+-->Distinct statement:
+
+SELECT DISTINCT FirstName FROM Customer;
+
+-->Where statement:
+
+SELECT * FROM Customer WHERE Id=10;
+
+-->AND/OR clause: Check how many rows are retrieving
+
+SELECT * FROM Customer WHERE City='Tsawassen' AND FirstName='Elizabeth'; 
+SELECT * FROM Customer WHERE City='Tsawassen' OR FirstName='Elizabeth';
