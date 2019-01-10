@@ -26,6 +26,8 @@ SELECT * FROM Customer WHERE Id BETWEEN 1 AND 20;
 
 -->Like statement
 
+SELECT * FROM Customer WHERE FirstName LIKE '_a%';
+
 -->ORDER BY clause
 
 SELECT * FROM Customer ORDER BY Country;
@@ -40,3 +42,10 @@ SELECT COUNT(FirstName) FROM Customer WHERE FirstName='Elizabeth';
 
 -->HAVING statement
 
+-->Update statement
+
+UPDATE Customer SET Country='Chennai' WHERE City='Tsawassen' AND FirstName='Elizabeth';
+
+-->Delete statement
+
+DELETE FROM Customer WHERE City='Tsawassen' AND FirstName='Elizabeth';
