@@ -30,7 +30,7 @@ SELECT * FROM Customer WHERE FirstName LIKE '_a%';
 
 -->ORDER BY clause
 
-SELECT * FROM Customer ORDER BY Country;
+SELECT * FROM Customer ORDER BY Country DESC, City ASC;
 
 -->GROUP BY statement
 
@@ -49,3 +49,9 @@ UPDATE Customer SET Country='Chennai' WHERE City='Tsawassen' AND FirstName='Eliz
 -->Delete statement
 
 DELETE FROM Customer WHERE City='Tsawassen' AND FirstName='Elizabeth';
+
+-->Top statement
+
+SELECT TOP 10 * FROM Customer;
+SELECT * FROM Customer LIMIT 10;
+
