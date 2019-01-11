@@ -5,7 +5,8 @@ SELECT Id, FirstName FROM Customer;
 
 -->Distinct statement:
 
-SELECT DISTINCT FirstName FROM Customer;
+SELECT DISTINCT FirstName FROM Customer
+SELECT DISTINCT Country FROM Customer;
 
 -->Where statement:
 
@@ -31,6 +32,15 @@ SELECT * FROM Customer WHERE FirstName LIKE '_a%';
 -->ORDER BY clause
 
 SELECT * FROM Customer ORDER BY Country DESC, City ASC;
+
+-->ORDER BY with predefined order
+
+SELECT * FROM Customer ORDER BY (CASE City
+WHEN 'Boise' THEN 1
+WHEN 'Elgin' THEN 2
+WHEN 'Portland' THEN 3
+ELSE 100 END) ASC,
+Country DESC;
 
 -->GROUP BY statement
 
