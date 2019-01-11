@@ -1,0 +1,59 @@
+--> SQL Constraints
+Following are commonly used constraints available in SQL:
+ NOT NULL Constraint: Ensures that a column cannot have NULL value.
+ DEFAULT Constraint: Provides a default value for a column when none is specified.
+ UNIQUE Constraint: Ensures that all values in a column are different.
+ PRIMARY Key: Uniquely identified each rows/records in a database table.
+ FOREIGN Key: Uniquely identified a row/record in any other database table.
+ CHECK Constraint: The CHECK constraint ensures that all values in a column satisfy certain conditions.
+ INDEX: Use to create and retrieve data from the database very quickly.
+
+-->NOT NULL
+The below table represents the not null constraint statement for Firstname and Lastname which indicates that empty values are not accepted.
+On other end Phone, Country and City are created in the basis of accepting NULL values.
+/*==============================================================*/
+/* Table: Customer                                              */
+/*==============================================================*/
+create table Customer (
+   Id                   int                  identity,
+   FirstName            nvarchar(40)         not null,
+   LastName             nvarchar(40)         not null,
+   City                 nvarchar(40)         null,
+   Country              nvarchar(40)         null,
+   Phone                nvarchar(20)         null,
+   constraint PK_CUSTOMER primary key (Id)
+
+-->DEFAULT
+The below table represents the default constraint. Here while inserting values inside the ORDER table when there is no value present for OrderDate
+and TotalAmount a default value of current date from system for OrderDate and '0' for TotalAmount is inserted.
+/*==============================================================*/
+/* Table: "Order"                                               */
+/*==============================================================*/
+create table "Order" (
+   Id                   int                  identity,
+   OrderDate            datetime             not null default getdate(),
+   OrderNumber          nvarchar(10)         null,
+   CustomerId           int                  not null,
+   TotalAmount          decimal(12,2)        null default 0,
+   constraint PK_ORDER primary key (Id)
+   
+-->UNIQUE
+The unique constraint is used to prevent having 2 same values in a colum for the entire table. We can create Phone number as unique
+constraint which will prevent giving same contact number for customers.
+
+-->PRIMARY KEY
+A primary key in a table is used to identify unique records in a table. A primary key cannot accept NULL values. A table can have only
+one primary key which may consist of single or multiple fields. When multiple fields are used as a primary key then we call it as a 
+composite key. If primary key is defined on any of the fileds, then you cannot have two records having the same value of that fields.
+A primary key should also be created with NOT NULL constraint.
+/*==============================================================*/
+/* Table: OrderItem                                             */
+/*==============================================================*/
+create table OrderItem (
+   Id                   int                  identity,
+   OrderId              int                  not null,
+   ProductId            int                  not null,
+   UnitPrice            decimal(12,2)        not null default 0,
+   Quantity             int                  not null default 1,
+   constraint PK_ORDERITEM primary key (Id)
+
